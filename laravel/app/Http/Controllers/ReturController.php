@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ViewRetur;
 
 class ReturController extends Controller
 {
@@ -11,7 +12,9 @@ class ReturController extends Controller
      */
     public function index()
     {
-        //
+        return view('Transaksi/ReturBarang',[
+            "TableRetur" => ViewRetur::all()
+        ]);
     }
 
     /**

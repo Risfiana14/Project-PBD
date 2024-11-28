@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ViewPenjualan;
 
 class PenjualanController extends Controller
 {
@@ -11,7 +12,9 @@ class PenjualanController extends Controller
      */
     public function index()
     {
-        //
+        return view('Transaksi/PenjualanBarang',[
+            "TablePenjualan" => ViewPenjualan::all()
+        ]);
     }
 
     /**

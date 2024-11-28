@@ -7,6 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ViewPenerimaan extends Model
 {
-    /** @use HasFactory<\Database\Factories\ViewPenerimaanFactory> */
-    use HasFactory;
+    protected $table = 'view_penerimaan';
 }

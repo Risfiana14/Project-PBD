@@ -12,6 +12,7 @@ use App\Http\Controllers\KartuStokController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\KonfigurasiController;
 use App\Http\Controllers\SatuanController;
+use App\Http\Controllers\RoleController;
 
 Route::get('/', function () {
     return view('index');
@@ -22,6 +23,7 @@ Route::prefix('master')->group(function () {
     Route::resource('vendor', VendorController::class);
     Route::resource('user', UserController::class);
     Route::resource('satuan', SatuanController::class);
+    Route::resource('role', RoleController::class);
 });
 Route::prefix('transaksi')->group(function () {
     Route::resource('penerimaan', PenerimaanController::class);
@@ -36,7 +38,4 @@ Route::prefix('laporan')->group(function () {
     Route::get('penjualan', [LaporanController::class, 'penjualan']);
     Route::get('penerimaan', [LaporanController::class, 'penerimaan']);
     Route::get('margin', [LaporanController::class, 'margin']);
-});
-Route::prefix('pengaturan')->group(function () {
-    Route::get('konfigurasi', [KonfigurasiController::class, 'index']);
 });

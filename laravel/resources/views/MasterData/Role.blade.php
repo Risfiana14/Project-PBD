@@ -4,30 +4,24 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Table User</h4>
+            <h4 class="card-title">Table Role</h4>
             <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>ID User</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Id Role</th>
+                    <th>ID Role</th>
+                    <th>Nama Role</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ( $TableUser as $value )
+                    @foreach ( $TableRole as $value )
                     <tr>
                             <td>
-                             {{ $value->id }}
+                             {{ $value->idrole }}
                             </td>
                             <td>
-                             {{ $value->name }}
+                             {{ $value->nama_role }}
                             </td>
-                            <td>
-                             {{ $value->email }}
-                            </td>
-                            <td> {{ $value->role_id }} </td>
                         </tr>
                     @endforeach
                 </tbody>

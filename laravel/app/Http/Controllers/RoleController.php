@@ -1,19 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\ViewRole;
 
 use Illuminate\Http\Request;
-use App\Models\ViewPenerimaan;
 
-class PenerimaanController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('Transaksi/PenerimaanBarang',[
-            "TablePenerimaan" => ViewPenerimaan::all()
+        return view('MasterData/Role',[
+            "TableRole" => ViewRole::all(),
         ]);
     }
 

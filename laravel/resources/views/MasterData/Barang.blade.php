@@ -1,6 +1,7 @@
 @extends('index')
 
 @section('content')
+
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
         <div class="card-body">
@@ -9,16 +10,18 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    @foreach ( DB::getSchemaBuilder()->getColumnListing('view_barang') as $value )
-                        <th>
-                        {{ $value }}
-                        <th>
-                    @endforeach
+                        <th>ID Barang</th>
+                        <th>Jenis</th>
+                        <th>Nama</th>
+                        <th>Status</th>
+                        <th>Harga</th>
+                        <th>Id Satuan</th>
+                    
                 </tr>
                 </thead>
                 <tbody>
                     @foreach ( $TableBarang as $value )
-                    <tr>
+                        <tr>
                             <td>
                              {{ $value->idbarang }}
                             </td>

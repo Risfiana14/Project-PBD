@@ -9,33 +9,23 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    @foreach ( DB::getSchemaBuilder()->getColumnListing('view_satuan') as $value )
-                        <th>
-                            {{ $value }}
-                        <th>
-                    @endforeach
+                        <th>ID Satuan</th>
+                        <th>Nama Satuan</th>
+                        <th>Status</th>
+
                 </tr>
                 </thead>
                 <tbody>
                     @foreach ( $TableSatuan as $value )
                     <tr>
                             <td>
-                             {{ $value->idbarang }}
+                             {{ $value->idsatuan }}
                             </td>
                             <td>
-                             {{ $value->jenis }}
-                            </td>
-                            <td>
-                             {{ $value->nama }}
+                             {{ $value->nama_satuan }}
                             </td>
                             <td>
                              {{ $value->status }}
-                            </td>
-                            <td>
-                             {{ $value->harga }}
-                            </td>
-                            <td>
-                             {{ $value->idsatuan }}
                             </td>
                         </tr>
                     @endforeach

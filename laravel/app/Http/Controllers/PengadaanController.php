@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ViewPengadaan;
 
 class PengadaanController extends Controller
 {
@@ -11,7 +12,9 @@ class PengadaanController extends Controller
      */
     public function index()
     {
-        //
+        return view('Transaksi/PengadaanBarang',[
+            "TablePengadaan" => ViewPengadaan::all()
+        ]);
     }
 
     /**
