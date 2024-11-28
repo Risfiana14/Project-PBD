@@ -323,8 +323,8 @@
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="{{ route('penerimaan.index') }}">Penerimaan Barang</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('pengadaan.index') }}">Pengadaan Barang</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('penerimaan.index') }}">Penerimaan Barang</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('penjualan.index') }}">Penjualan Barang</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('retur.index') }}">Retur Barang</a></li>
               </ul>

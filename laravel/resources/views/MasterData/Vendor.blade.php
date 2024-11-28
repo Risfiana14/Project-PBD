@@ -12,7 +12,7 @@
                     @foreach ( DB::getSchemaBuilder()->getColumnListing('view_vendor') as $value )
                         <th>
                             {{ $value }}
-                        <th>
+                        </th>
                     @endforeach
                 </tr>
                 </thead>
@@ -20,22 +20,16 @@
                     @foreach ( $TableVendor as $value )
                         <tr>
                             <td>
-                             {{ $value->idbarang }}
+                             {{ $value->idvendor }}
                             </td>
                             <td>
-                             {{ $value->jenis }}
+                             {{ $value->nama_vendor }}
                             </td>
                             <td>
-                             {{ $value->nama }}
+                             {{ $value->badan_hukum }}
                             </td>
                             <td>
                              {{ $value->status }}
-                            </td>
-                            <td>
-                             {{ $value->harga }}
-                            </td>
-                            <td>
-                             {{ $value->idsatuan }}
                             </td>
                         </tr>
                     @endforeach
