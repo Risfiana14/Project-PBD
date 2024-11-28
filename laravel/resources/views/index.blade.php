@@ -10,9 +10,6 @@
   <link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
 <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
 <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
-<!-- endinject -->
-<!-- Plugin css for this page -->
-<link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
 <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('js/select.dataTables.min.css') }}">
 <!-- End plugin css for this page -->
@@ -314,6 +311,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{{ route('vendor.index') }}">Vendor</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('user.index') }}">User</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('satuan.index') }}">Satuan</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('role.index') }}">Role</a></li>
               </ul>
             </div>
           </li>
@@ -325,10 +323,10 @@
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Penerimaan Barang</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Pengadaan Barang</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Penjualan</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Retur Barang</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('penerimaan.index') }}">Penerimaan Barang</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('pengadaan.index') }}">Pengadaan Barang</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('penjualan.index') }}">Penjualan Barang</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('retur.index') }}">Retur Barang</a></li>
               </ul>
             </div>
           </li>
@@ -359,19 +357,7 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-              <i class="icon-contract menu-icon"></i>
-              <span class="menu-title">Pengaturan</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="icons">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Konfigurasi Sistem</a></li>
-              </ul>
-            </div>
-          </li>
-      
+  
         </ul>
       </nav>
     
@@ -397,10 +383,6 @@
   </div>
 
   <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
-<script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
-<script src="{{ asset('vendors/datatables.net/jquery.dataTables.js') }}"></script>
-<script src="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
-<script src="{{ asset('js/dataTables.select.min.js') }}"></script>
 <script src="{{ asset('js/off-canvas.js') }}"></script>
 <script src="{{ asset('js/hoverable-collapse.js') }}"></script>
 <script src="{{ asset('js/template.js') }}"></script>

@@ -13,9 +13,24 @@ return new class extends Migration
     {
         DB::statement("
         CREATE TABLE role (
-            idrole INT PRIMARY KEY AUTO_INCREMENT,
+            idrole INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             nama_role VARCHAR(45) NOT NULL
         );
+    ");
+
+    DB::statement("
+        CREATE TABLE users (
+            id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) UNIQUE NOT NULL,
+            email_verified_at TIMESTAMP NULL DEFAULT NULL,
+            password VARCHAR(255) NOT NULL,
+            role_id INT UNSIGNED NOT NULL,
+            remember_token VARCHAR(100) NULL DEFAULT NULL,
+            created_at TIMESTAMP NULL DEFAULT NULL,
+            updated_at TIMESTAMP NULL DEFAULT NULL,
+            FOREIGN KEY (role_id) REFERENCES role(idrole) ON DELETE CASCADE
+        )
     ");
 
     // Tabel satuan
@@ -117,7 +132,7 @@ return new class extends Migration
             jenis_transaksi CHAR(1) NULL,
             masuk INT NULL,
             keluar INT NULL,
-            stock INT NULL,
+            stok INT NULL,
             created_at TIMESTAMP NULL,
             idtransaksi INT NULL,
             idbarang INT,
@@ -191,6 +206,8 @@ return new class extends Migration
             FOREIGN KEY (idbarang) REFERENCES barang(idbarang) ON DELETE CASCADE
         );
     ");
+
+    
     }
 
     /**
