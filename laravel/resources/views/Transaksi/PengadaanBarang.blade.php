@@ -5,7 +5,10 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Table Pengadaan</h4>
+        <div class="d-flex justify-content-between align-items-center ">
+            <h4 class="card-title mb-0">Table Pengadaan</h4>
+            <a href="{{ route('detail-pengadaan.index') }}"><button type="button" class="btn btn-success btn-rounded btn-fw" >Detail Pengadaan</button></a>
+        </div>
             <div class="table-responsive">
             <table class="table table-striped">
                 <thead>

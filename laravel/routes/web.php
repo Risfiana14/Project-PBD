@@ -9,10 +9,13 @@ use App\Http\Controllers\PengadaanController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\ReturController;
 use App\Http\Controllers\KartuStokController;
-use App\Http\Controllers\LaporanController;
-use App\Http\Controllers\KonfigurasiController;
+use App\Http\Controllers\MarginPenjualanController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\D_PenerimaanController;
+use App\Http\Controllers\D_PengadaanController;
+use App\Http\Controllers\D_ReturController;
+use App\Http\Controllers\D_PenjualanController;
 
 Route::get('/', function () {
     return view('index');
@@ -30,12 +33,15 @@ Route::prefix('transaksi')->group(function () {
     Route::resource('pengadaan', PengadaanController::class);
     Route::resource('penjualan', PenjualanController::class);
     Route::resource('retur', ReturController::class);
+
+    Route::resource('detail-penerimaan', D_PenerimaanController::class);
+    Route::resource('detail-pengadaan', D_PengadaanController::class);
+    Route::resource('detail-penjualan', D_PenjualanController::class);
+    Route::resource('detail-retur', D_ReturController::class);
 });
-Route::prefix('stok')->group(function () {
-    Route::get('kartu', [KartuStokController::class, 'index']);
+Route::prefix('manajemenstok')->group(function () {
+    Route::resource('kartustok', KartuStokController::class);
 });
 Route::prefix('laporan')->group(function () {
-    Route::get('penjualan', [LaporanController::class, 'penjualan']);
-    Route::get('penerimaan', [LaporanController::class, 'penerimaan']);
-    Route::get('margin', [LaporanController::class, 'margin']);
+    Route::resource('margin', MarginPenjualanController::class);
 });

@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ViewDetailPenerimaan;
 use Illuminate\Http\Request;
-use App\Models\ViewKartuStok;
 
-class KartuStokController extends Controller
+class D_PenerimaanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('ManajemenStok/KartuStok',[
-            "TableKartuStok" => ViewKartuStok::all()
+        return view('Transaksi/DetailTransaksi/D_PenerimaanBarang',[
+            "TableDetailPenerimaan" => ViewDetailPenerimaan::all()
         ]);
     }
 

@@ -11,11 +11,12 @@
                 <thead>
                 <tr>
                         <th>ID Barang</th>
+                        <th>ID Satuan</th>
                         <th>Jenis</th>
                         <th>Nama</th>
                         <th>Status</th>
                         <th>Harga</th>
-                        <th>Id Satuan</th>
+                        
                     
                 </tr>
                 </thead>
@@ -24,6 +25,9 @@
                         <tr>
                             <td>
                              {{ $value->idbarang }}
+                            </td>
+                            <td>
+                             {{ $value->idsatuan }}
                             </td>
                             <td>
                              {{ $value->jenis }}
@@ -37,9 +41,7 @@
                             <td>
                              {{ $value->harga }}
                             </td>
-                            <td>
-                             {{ $value->idsatuan }}
-                            </td>
+                            
                         </tr>
                     @endforeach
                 </tbody>

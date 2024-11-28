@@ -10,9 +10,10 @@
                 <thead>
                 <tr>
                     <th>ID User</th>
+                    <th>ID Role</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Id Role</th>
+                   
                 </tr>
                 </thead>
                 <tbody>
@@ -21,13 +22,14 @@
                             <td>
                              {{ $value->id }}
                             </td>
+                            <td> {{ $value->role_id }} </td>
                             <td>
                              {{ $value->name }}
                             </td>
                             <td>
                              {{ $value->email }}
                             </td>
-                            <td> {{ $value->role_id }} </td>
+                            
                         </tr>
                     @endforeach
                 </tbody>

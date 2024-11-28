@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ViewKartuStok;
+use App\Models\ViewDetailPenjualan;
 
-class KartuStokController extends Controller
+class D_PenjualanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('ManajemenStok/KartuStok',[
-            "TableKartuStok" => ViewKartuStok::all()
+        return view('Transaksi/DetailTransaksi/D_PenjualanBarang',[
+            "TableDetailPenjualan" => ViewDetailPenjualan::all()
         ]);
     }
 

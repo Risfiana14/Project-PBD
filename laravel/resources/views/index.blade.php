@@ -338,7 +338,7 @@
             </a>
             <div class="collapse" id="charts">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">Kartu Stok</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('kartustok.index') }}">Kartu Stok</a></li>
               </ul>
             </div>
           </li>
@@ -350,10 +350,7 @@
             </a>
             <div class="collapse" id="tables">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Penjualan</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Penerimaan Barang</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Pengadaan Barang</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Margin Penjualan</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('margin.index') }}">Margin Penjualan</a></li>
               </ul>
             </div>
           </li>
@@ -361,9 +358,6 @@
         </ul>
       </nav>
     
-
-
-
 
       <div class="main-panel">
         <div class="content-wrapper">

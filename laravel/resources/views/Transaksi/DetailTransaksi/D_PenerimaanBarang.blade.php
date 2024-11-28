@@ -1,42 +1,42 @@
 @extends('index')
 
 @section('content')
-
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
         <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center ">
-            <h4 class="card-title mb-0">Table Penerimaan</h4>
-            <a href="{{ route('detail-penerimaan.index') }}"><button type="button" class="btn btn-success btn-rounded btn-fw" >Detail Penerimaan</button></a>
-        </div>
+            <h4 class="card-title">Detail Penerimaan Barang</h4>
             <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                 <tr>
+                        <th>ID Detail Penerimaan</th>
                         <th>ID Penerimaan</th>
-                        <th>ID Pengadaan</th>
-                        <th>ID User</th>
-                        <th>Status</th>
-                        <th>Created At</th>
+                        <th>ID Barang</th>
+                        <th>Jumlah Terima</th>
+                        <th>Harga Satuan Terima</th>
+                        <th>Sub Total Terima</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ( $TablePenerimaan as $value )
+                    @foreach ( $TableDetailPenerimaan as $value )
                          <tr>
+                            <td>
+                             {{ $value->iddetail_penerimaan }}
+                            </td>
                             <td>
                              {{ $value->idpenerimaan }}
                             </td>
                             <td>
-                             {{ $value->idpengadaan }}
+                             {{ $value->idbarang }}
                             </td>
                             <td>
-                             {{ $value->iduser }}
+                             {{ $value->jumlah_terima }}
                             </td>
                             <td>
-                             {{ $value->status }}
+                             {{ $value->harga_satuan_terima }}
                             </td>
                             <td>
-                             {{ $value->created_at }}
+                             {{ $value->sub_total_terima }}
                             </td>
                         </tr>
                     @endforeach
