@@ -5,7 +5,7 @@
         <div class="card">
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center ">
-                <h4 class="card-title mb-0">Table Penerimaan</h4>
+                <h4 class="card-title mb-0">Table Role</h4>
                 <button type="button" class="btn btn-info btn-rounded btn-fw" data-toggle="modal" data-target=".bd-example-modal-lg">+ Tambah</button>
             </div>
             <div class="table-responsive">

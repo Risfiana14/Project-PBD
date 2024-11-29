@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ViewRetur;
+use Illuminate\Support\Facades\DB;
 
 class ReturController extends Controller
 {
@@ -30,7 +31,8 @@ class ReturController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::statement("CALL insert_retur($request->idpenerimaan,$request->iduser)");
+        return redirect()->back();
     }
 
     /**
@@ -54,14 +56,16 @@ class ReturController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::statement("CALL update_retur($id, $request->idpenerimaan,$request->iduser)");
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        DB::statement("CALL delete_retur($id)");
+        return redirect()->back();
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ViewPenerimaan;
+use Illuminate\Support\Facades\DB;
 
 class PenerimaanController extends Controller
 {
@@ -30,7 +31,8 @@ class PenerimaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::statement("CALL insert_penerimaan('$request->status',$request->idpengadaan,$request->iduser)");
+        return redirect()->back();
     }
 
     /**
@@ -54,14 +56,16 @@ class PenerimaanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::statement("CALL update_penerimaan($id, '$request->status',$request->idpengadaan,$request->iduser)");
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        DB::statement("CALL delete_penerimaan($id)");
+        return redirect()->back();
     }
 }
