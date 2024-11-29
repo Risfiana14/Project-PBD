@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\ViewRole;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -22,7 +23,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -30,7 +31,8 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::statement("CALL insert_role('$request->nama_role')");
+        return redirect()->back();
     }
 
     /**
@@ -54,14 +56,16 @@ class RoleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::statement("CALL update_role($id, '$request->nama_role')");
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        DB::statement("CALL delete_role($id)");
+        return redirect()->back();
     }
 }

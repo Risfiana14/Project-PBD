@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ViewUser;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -31,7 +32,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::statement("CALL insert_user('$request->name','$request->email','$request->password',$request->idrole)");
+        return redirect()->back();
     }
 
     /**
@@ -55,7 +57,8 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::statement("CALL update_user($id, '$request->name','$request->email','$request->password',$request->idrole)");
+        return redirect()->back();
     }
 
     /**
@@ -63,6 +66,7 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::statement("CALL delete_user($id)");
+        return redirect()->back();
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ViewVendor;
+use Illuminate\Support\Facades\DB;
 
 class VendorController extends Controller
 {
@@ -30,7 +31,8 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::statement("CALL insert_vendor('$request->nama_vendor','$request->badan_hukum', '$request->status')");
+        return redirect()->back();
     }
 
     /**
@@ -54,7 +56,8 @@ class VendorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::statement("CALL update_vendor($id, '$request->nama_vendor','$request->badan_hukum', '$request->status')");
+        return redirect()->back();
     }
 
     /**
@@ -62,6 +65,7 @@ class VendorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::statement("CALL delete_vendor($id)");
+        return redirect()->back();
     }
 }

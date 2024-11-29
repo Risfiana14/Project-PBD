@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ViewSatuan;
+use Illuminate\Support\Facades\DB;
 
 class SatuanController extends Controller
 {
@@ -30,7 +31,8 @@ class SatuanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::statement("CALL insert_satuan('$request->nama_satuan',$request->status)");
+        return redirect()->back();
     }
 
     /**
@@ -54,7 +56,8 @@ class SatuanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::statement("CALL update_satuan($id, '$request->nama_satuan',$request->status)");
+        return redirect()->back();
     }
 
     /**
@@ -62,6 +65,7 @@ class SatuanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::statement("CALL delete_satuan($id)");
+        return redirect()->back();
     }
 }
