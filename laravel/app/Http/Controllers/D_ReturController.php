@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ViewDetailRetur;
+use Illuminate\Support\Facades\DB;
 
 class D_ReturController extends Controller
 {
@@ -30,7 +31,8 @@ class D_ReturController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::statement("CALL insert_detail_retur($request->jumlah,'$request->alasan',$request->id_retur,$request->id_detail_penerimaan)");
+        return redirect()->back();
     }
 
     /**
@@ -54,14 +56,16 @@ class D_ReturController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::statement("CALL update_detail_retur($id,$request->jumlah,'$request->alasan',$request->id_retur,$request->id_detail_penerimaan)");
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        DB::statement("CALL delete_detail_retur($id)");
+        return redirect()->back();
     }
 }

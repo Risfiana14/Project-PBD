@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ViewDetailPenerimaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class D_PenerimaanController extends Controller
 {
@@ -30,7 +31,8 @@ class D_PenerimaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::statement("CALL insert_detail_penerimaan($request->id_penerimaan,$request->id_barang,$request->jumlah_terima,$request->harga_satuan_terima,$request->sub_total_terima)");
+        return redirect()->back();
     }
 
     /**
@@ -54,14 +56,16 @@ class D_PenerimaanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::statement("CALL update_detail_penerimaan($id,$request->id_penerimaan,$request->id_barang,$request->jumlah_terima,$request->harga_satuan_terima,$request->sub_total_terima)");
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        DB::statement("CALL delete_detail_penerimaan($id)");
+        return redirect()->back();
     }
 }

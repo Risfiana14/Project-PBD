@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ViewMarginPenjualan;
+use Illuminate\Support\Facades\DB;
 
 class MarginPenjualanController extends Controller
 {
@@ -30,7 +31,8 @@ class MarginPenjualanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::statement("CALL insert_margin_penjualan($request->persen,$request->status,$request->iduser)");
+        return redirect()->back();
     }
 
     /**
@@ -54,14 +56,16 @@ class MarginPenjualanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::statement("CALL update_margin_penjualan($id,$request->persen,$request->status,$request->iduser)");
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        DB::statement("CALL delete_margin_penjualan($id)");
+        return redirect()->back();
     }
 }

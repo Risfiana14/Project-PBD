@@ -102,15 +102,15 @@
 
                                                         <div class="form-group">
                                                             <label for="exampleInputUsername1">Sub Total Nilai</label>
-                                                            <input type="number" class="form-control" name="sub_total_nilai" Required>
+                                                            <input value="{{ $value->subtotal_nilai }}" type="number" class="form-control" name="sub_total_nilai" Required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputUsername1">PPN</label>
-                                                            <input type="number" class="form-control" name="ppn" Required>
+                                                            <input value="{{ $value->ppn }}" type="number" class="form-control" name="ppn" Required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputUsername1">Total Nilai</label>
-                                                            <input type="number" class="form-control" name="total_nilai" Required>
+                                                            <input value="{{ $value->total_nilai }}"  type="number" class="form-control" name="total_nilai" Required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleSelectGender">Status</label>

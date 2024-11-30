@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ViewKartuStok;
+use Illuminate\Support\Facades\DB;
 
 class KartuStokController extends Controller
 {
@@ -30,7 +31,8 @@ class KartuStokController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::statement("CALL insert_kartu_stok('$request->jenis_transaksi',$request->masuk,$request->keluar,$request->stok,$request->id_transaksi,$request->id_barang)");
+        return redirect()->back();
     }
 
     /**
@@ -54,14 +56,16 @@ class KartuStokController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::statement("CALL update_kartu_stok($id,'$request->jenis_transaksi',$request->masuk,$request->keluar,$request->stok,$request->id_transaksi,$request->id_barang)");
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        DB::statement("CALL delete_kartu_stok($id)");
+        return redirect()->back();
     }
 }

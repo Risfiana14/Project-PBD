@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ViewDetailPenjualan;
+use Illuminate\Support\Facades\DB;
 
 class D_PenjualanController extends Controller
 {
@@ -30,7 +31,8 @@ class D_PenjualanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::statement("CALL insert_detail_penjualan($request->harga_satuan,$request->jumlah,$request->sub_total,$request->id_penjualan,$request->id_barang)");
+        return redirect()->back();
     }
 
     /**
@@ -54,14 +56,16 @@ class D_PenjualanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::statement("CALL update_detail_penjualan($id,$request->harga_satuan,$request->jumlah,$request->sub_total,$request->id_penjualan,$request->id_barang)");
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        DB::statement("CALL delete_detail_penjualan($id)");
+        return redirect()->back();
     }
 }
