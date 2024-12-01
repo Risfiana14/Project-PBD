@@ -20,12 +20,19 @@
 
 </head>
 <body>
+  
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <img src="{{ asset('images/proyek_PBD.jpeg') }}" alt="Image" />
+        </div>
+      </div>
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="{{ asset('images/logo.svg') }}" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('images/logo-mini.svg') }}" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="/"><img src="{{ asset('images/logo.svg') }}" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="/"><img src="{{ asset('images/logo-mini.svg') }}" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -286,19 +293,18 @@
               </li>
             </ul>
           </div>
-          <!-- chat tab ends -->
         </div>
       </div>
-      <!-- partial -->
-      <!-- partial:partials/_sidebar.html -->
+     
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item">
+        <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
             <a class="nav-link" href="/">
-              <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
             </a>
-          </li>
+        </li>
+
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-layout menu-icon"></i>

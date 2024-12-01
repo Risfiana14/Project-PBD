@@ -16,10 +16,10 @@ use App\Http\Controllers\D_PenerimaanController;
 use App\Http\Controllers\D_PengadaanController;
 use App\Http\Controllers\D_ReturController;
 use App\Http\Controllers\D_PenjualanController;
+use App\Http\Controllers\DashboardController;
 
-Route::get('/', function () {
-    return view('index');
-});
+
+Route::get('/', [DashboardController::class,'index']);
 
 Route::prefix('master')->group(function () {
     Route::resource('barang', BarangController::class);
