@@ -81,12 +81,12 @@
             <div class="d-flex">
             <div>
                 <h2 class="mb-0 font-weight-normal">
-                <i class="icon-sun mr-2"></i>{{ $temperature }}<sup>C</sup>
+                <i class="icon-sun mr-2"></i>31<sup>C</sup>
                 </h2>
             </div>
             <div class="ml-2">
-                <h4 class="location font-weight-normal">{{ $city }}</h4>
-                <h6 class="font-weight-normal">{{ $country }}</h6>
+                <h4 class="location font-weight-normal">Gubeng</h4>
+                <h6 class="font-weight-normal">Surabaya</h6>
             </div>
             </div>
         </div>

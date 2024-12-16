@@ -31,8 +31,36 @@ class ReturController extends Controller
      */
     public function store(Request $request)
     {
-        DB::statement("CALL insert_retur($request->idpenerimaan,$request->iduser)");
-        return redirect()->back();
+        $request->validate([
+            'iduser' => 'required|integer',
+            'idpenerimaan' => 'required|integer',
+            'idbarang' => 'required|array',
+            'idbarang.*' => 'required|integer',
+            'jumlah' => 'required|array',
+            'jumlah.*' => 'required|integer|min:1',
+            'alasan' => 'required|array',  
+            'alasan.*' => 'required', 
+        ]);
+        
+        $barangDetail = [];
+        foreach ($request->idbarang as $index => $idbarang) {
+            $barangDetail[] = [
+                'idbarang' => $idbarang,
+                'jumlah' => $request->jumlah[$index],
+                'alasan' => $request->alasan[$index],  
+            ];
+        }
+        
+        $barangDetailJson = json_encode($barangDetail);
+        
+        DB::statement('CALL insert_retur_dengan_detail(?, ?, ?)', [
+            $request->iduser,
+            $request->idpenerimaan,
+            $barangDetailJson
+        ]);
+        
+        return redirect()->back()->with('success', 'Data berhasil disimpan.');
+        
     }
 
     /**

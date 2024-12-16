@@ -31,8 +31,38 @@ class PengadaanController extends Controller
      */
     public function store(Request $request)
     {
-        DB::statement("CALL insert_pengadaan($request->iduser,'$request->status',$request->idvendor,$request->sub_total_nilai,$request->ppn,$request->total_nilai)");
-        return redirect()->back();
+        try {
+            $request->validate([
+                'iduser' => 'required|integer',
+                'idvendor' => 'required|integer',
+                'status' => 'required|string|in:P,A',
+                'idbarang' => 'required|array',
+                'idbarang.*' => 'required|integer',
+                'jumlah' => 'required|array',
+                'jumlah.*' => 'required|integer|min:1',
+            ]);
+    
+            $barangDetail = [];
+            foreach ($request->idbarang as $index => $idbarang) {
+                $barangDetail[] = [
+                    'idbarang' => $idbarang,
+                    'jumlah' => $request->jumlah[$index]
+                ];
+            }
+            $barangDetailJson = json_encode($barangDetail);
+    
+            DB::statement('CALL insert_pengadaan_dengan_detail(?, ?, ?, ?)', [
+                $request->iduser,
+                $request->idvendor,
+                $request->status,
+                $barangDetailJson
+            ]);
+    
+            return redirect()->back()->with('success', 'Data berhasil disimpan.');
+        } catch (\Exception $e) {
+            // Tangani error
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
     }
 
     /**

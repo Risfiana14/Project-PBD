@@ -31,7 +31,7 @@ class D_PengadaanController extends Controller
      */
     public function store(Request $request)
     {
-        DB::statement("CALL insert_detail_pengadaan($request->harga_satuan,$request->jumlah,$request->sub_total,$request->id_pengadaan,$request->id_barang)");
+        DB::statement("CALL insert_detail_pengadaan($request->id_pengadaan,$request->id_barang,$request->jumlah)");
         return redirect()->back();
     }
 

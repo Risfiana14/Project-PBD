@@ -17,6 +17,8 @@ use App\Http\Controllers\D_PengadaanController;
 use App\Http\Controllers\D_ReturController;
 use App\Http\Controllers\D_PenjualanController;
 use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 
 Route::get('/', [DashboardController::class,'index']);
@@ -45,3 +47,12 @@ Route::prefix('manajemenstok')->group(function () {
 Route::prefix('laporan')->group(function () {
     Route::resource('margin', MarginPenjualanController::class);
 });
+
+Route::get('/get-barang-by-pengadaan/{idpengadaan}', [BarangController::class, 'getBarangByPengadaan']);
+Route::get('/get-max-jumlah/{idbarang}', [BarangController::class, 'getMaxJumlahByIdBarang']);
+Route::get('/get-barang-penerimaan', [BarangController::class, 'getBarangPenerimaan']);
+Route::get('/get-max-jumlah/{idbarang}}', [BarangController::class, 'getMaxJumlahBarangPenerimaan']);
+Route::get('/get-max-jumlah/{idbarang}}', [BarangController::class, 'getMaxJumlahBarangPenerimaan']);
+
+Route::get('/get-barang-by-penerimaan/{idpenerimaan}', [BarangController::class, 'getBarangByPenerimaan']);
+Route::get('/get-barang-count', [BarangController::class, 'getBarangCount']);

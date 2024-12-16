@@ -34,10 +34,7 @@ class DashboardController extends Controller
             'data' => [$totalBarang, $totalVendor, $totalUser, $totalSatuan, $totalRole] 
         ];
 
-        $city = 'Surabaya';
-        $apiKey = env('WEATHER_API_KEY');
-        $response = Http::get("https://api.openweathermap.org/data/2.5/weather?q={$city}&appid={$apiKey}&units=metric");
-        $weatherData = $response->json();
+      
     
         return view('Dashboard.dashboard', [
             'totalPengadaan' => $totalPengadaan,
@@ -54,10 +51,7 @@ class DashboardController extends Controller
             'totalSatuan' => $totalSatuan, 
             'totalRole' => $totalRole,
             'data' => $data,
-            'data1' => $data1,
-            'temperature' => $weatherData['main']['temp'],
-            'city' => $weatherData['name'],
-            'country' => $weatherData['sys']['country']
+            'data1' => $data1
         ]);
     }    
 }

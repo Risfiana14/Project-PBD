@@ -31,8 +31,38 @@ class PenerimaanController extends Controller
      */
     public function store(Request $request)
     {
-        DB::statement("CALL insert_penerimaan('$request->status',$request->idpengadaan,$request->iduser)");
-        return redirect()->back();
+        try {
+
+            $request->validate([
+                'idpengadaan' => 'required|integer',
+                'iduser' => 'required|integer',
+                'status' => 'required|string|in:P,A',
+                'idbarang' => 'required|array',
+                'idbarang.*' => 'required|integer',
+                'jumlah' => 'required|array',
+                'jumlah.*' => 'required|integer|min:1',
+            ]);
+    
+            $barangDetail = [];
+            foreach ($request->idbarang as $index => $idbarang) {
+                $barangDetail[] = [
+                    'idbarang' => $idbarang,
+                    'jumlah' => $request->jumlah[$index]
+                ];
+            }
+            $barangDetailJson = json_encode($barangDetail);
+    
+            DB::statement('CALL insert_penerimaan_dengan_detail(?, ?, ?, ?)', [
+                $request->idpengadaan,
+                $request->iduser,
+                $request->status,
+                $barangDetailJson
+            ]);
+    
+            return redirect()->back()->with('success', 'Data berhasil disimpan.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
     }
 
     /**

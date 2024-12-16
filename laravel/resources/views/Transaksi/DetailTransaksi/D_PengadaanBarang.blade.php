@@ -146,21 +146,20 @@
                         <select name="id_barang" class="form-control" id="exampleSelectGender">
                         <option value=""></option>
                             @foreach ( DB::table('view_barang')->get() as $value)
-                                <option value="{{ $value->idbarang }}">{{ $value->idbarang }} -  {{ $value->nama }}</option>
+                                <option value="{{ $value->idbarang }}">{{ $value->idbarang }} -  {{ $value->nama }} - 
+                                    @foreach( DB::table('view_satuan')->get() as $item)
+                                        @if( $item->idsatuan == $value->idsatuan )
+                                            {{ $item->nama_satuan }}
+                                        @endif
+                                    @endforeach
+                                </option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputUsername1">Harga Satuan</label>
-                      <input type="number" class="form-control" name="harga_satuan" Required>
-                    </div>
+
                     <div class="form-group">
                       <label for="exampleInputUsername1">Jumlah</label>
                       <input type="number" class="form-control" name="jumlah" Required>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputUsername1">Sub Total</label>
-                      <input type="number" class="form-control" name="sub_total" Required>
                     </div>
         
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
