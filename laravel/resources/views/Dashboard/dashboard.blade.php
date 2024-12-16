@@ -66,7 +66,7 @@
     <div class="col-md-12 grid-margin">
         <div class="row justify-content-center">
             <div class="col-12 col-xl-8 mb-4 mb-xl-0 text-center">
-            <h3 class="font-weight-bold">Welcome R</h3>
+            <h3 class="font-weight-bold">Welcome Risfiana</h3>
             <h6 class="font-weight-normal mb-0">Project Praktikum Basis Data 2024 ! <span class="text-primary"><button class="open-button" id="openModalBtn">Lihat Desain Tabel</button></span></h6>
             </div>
         </div>
@@ -102,16 +102,14 @@
             <div class="card-body">
                 <p class="mb-4">Total Pengadaan Barang</p>
                 <p class="fs-30 mb-2">{{ $totalPengadaan }}</p>
-                <p>0 Pending - 1 Approved <br> 0 Completed - 1 Cancelled</p>
+           </div>
             </div>
             </div>
-        </div>
-        <div class="col-md-6 mb-4 stretch-card transparent">
+            <div class="col-md-6 mb-4 stretch-card transparent">
             <div class="card card-dark-blue">
             <div class="card-body">
                 <p class="mb-4">Total Penerimaan Barang</p>
                 <p class="fs-30 mb-2">{{ $totalPenerimaan }}</p>
-                <p>1 Pending - 0 Approved <br> 1 Completed - 0 Cancelled</p>
             </div>
             </div>
         </div>
