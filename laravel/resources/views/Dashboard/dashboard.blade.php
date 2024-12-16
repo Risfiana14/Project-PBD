@@ -66,7 +66,7 @@
     <div class="col-md-12 grid-margin">
         <div class="row justify-content-center">
             <div class="col-12 col-xl-8 mb-4 mb-xl-0 text-center">
-            <h3 class="font-weight-bold">Welcome Ahmad Lazim</h3>
+            <h3 class="font-weight-bold">Welcome R</h3>
             <h6 class="font-weight-normal mb-0">Project Praktikum Basis Data 2024 ! <span class="text-primary"><button class="open-button" id="openModalBtn">Lihat Desain Tabel</button></span></h6>
             </div>
         </div>
